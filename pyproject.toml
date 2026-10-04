@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jarvis-harness"
+version = "0.1.0"
+description = "JARVIS-style orchestrator: dispatch work to Claude/Codex CLIs with shared memory, git worktrees, and session continuity. Muse is the main."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+harness = "harness.cli:main"
+jarvis = "harness.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["harness*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
